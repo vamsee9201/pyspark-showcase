@@ -54,3 +54,5 @@ df.collect()
 
 # %%
 #dummmy commit
+df.take(1)
+
