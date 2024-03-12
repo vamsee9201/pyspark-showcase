@@ -71,4 +71,14 @@ df.withColumn('upper_c', upper(df.c)).show()
 df.filter(df.a == 1).show()
 # %%
 type(df.select(df.c))
+#%%
+import pandas as pd
+from pyspark.sql.functions import pandas_udf
+
+@pandas_udf('long')
+def pandas_plus_one(series: pd.Series) -> pd.Series:
+    # Simply plus one by using pandas Series.
+    return series + 1
+
+df.select(pandas_plus_one(df.a)).show()
 # %%
