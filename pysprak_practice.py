@@ -55,4 +55,20 @@ df.collect()
 # %%
 #dummmy commit
 df.take(1)
+#%%
+df.a
 
+
+# %%
+from pyspark.sql import Column
+from pyspark.sql.functions import upper
+type(df.c) == type(upper(df.c)) == type(df.c.isNull())
+# %%
+df.select(df.c).show()
+# %%
+df.withColumn('upper_c', upper(df.c)).show()
+#%%
+df.filter(df.a == 1).show()
+# %%
+type(df.select(df.c))
+# %%
