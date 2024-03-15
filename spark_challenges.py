@@ -10,3 +10,7 @@ diabetesPrediction.show()
 #basic data exploration
 diabetesPrediction.printSchema()
 # %%
+diabetesPrediction.describe().show()
+# %%
+diabetesPrediction.summary("count", "min", "25%", "75%", "max").show()
+# %%
