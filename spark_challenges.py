@@ -7,3 +7,6 @@ spark = SparkSession.builder.getOrCreate()
 diabetesPrediction = spark.read.csv('diabetes_prediction_dataset.csv', header=True)
 diabetesPrediction.show()
 #%%
+#basic data exploration
+diabetesPrediction.printSchema()
+# %%
