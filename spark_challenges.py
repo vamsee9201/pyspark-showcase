@@ -14,3 +14,16 @@ diabetesPrediction.describe().show()
 # %%
 diabetesPrediction.summary("count", "min", "25%", "75%", "max").show()
 # %%
+diabetesPrediction.show()
+# %%
+genderAvgAge = diabetesPrediction.groupBy(diabetesPrediction.gender).agg({'age':'mean'}).collect()
+genderAvgAge
+# %%
+diabetesPrediction.count()
+# %%
+len(diabetesPrediction.columns)
+# %%
+diabetesPrediction.select('gender').distinct().show()
+# %%
+diabetesPrediction.distinct().count()
+# %%
