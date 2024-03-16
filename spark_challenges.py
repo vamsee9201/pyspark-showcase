@@ -25,5 +25,9 @@ len(diabetesPrediction.columns)
 # %%
 diabetesPrediction.select('gender').distinct().show()
 # %%
-diabetesPrediction.distinct().count()
+diabetesPrediction.count()
+# %%
+diabetesPrediction.dropDuplicates().collect()
+# %%
+diabetesPrediction.groupBy('gender').count().show()
 # %%
