@@ -1,6 +1,7 @@
 #%%
 import pyspark.pandas as ps
 from pyspark.sql import SparkSession
+from pyspark.sql.functions import col
 #%%
 spark = SparkSession.builder.getOrCreate()
 #%%
@@ -30,4 +31,6 @@ diabetesPrediction.count()
 diabetesPrediction.dropDuplicates().collect()
 # %%
 diabetesPrediction.groupBy('gender').count().show()
+# %%
+diabetesPrediction.filter(col("age").isNull()).count().show()
 # %%
