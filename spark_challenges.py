@@ -32,5 +32,19 @@ diabetesPrediction.dropDuplicates().collect()
 # %%
 diabetesPrediction.groupBy('gender').count().show()
 # %%
-diabetesPrediction.filter(col("age").isNull()).count().show()
+diabetesPrediction.filter(col("age").isNull()).count()
 # %%
+diabetesPrediction.withColumn('age2',diabetesPrediction.age**2).show()
+# %%
+diabetesPrediction.drop('age2').show()
+# %%
+diabetesPrediction.describe().show()
+# %%
+diabetesPrediction.filter( (diabetesPrediction.age > 25) & (diabetesPrediction.age<35)).show()
+# %%
+diabetesPrediction.where( (diabetesPrediction.age > 25) & (diabetesPrediction.age<35)).show()
+
+# %%
+df1 = spark.createDataFrame([("Alice", 1), ("Bob", 2)], ["name", "id"])
+df2 = spark.createDataFrame([(3, "Charlie"), (4, "Dave")], ["id", "name"])
+df1.union(df2).show()
