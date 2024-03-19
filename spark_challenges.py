@@ -53,3 +53,5 @@ spark.sql('SELECT * FROM {table1}',table1=diabetesPrediction).show()
 # %%
 spark.sql("SELECT {table1}.age FROM {table1}",table1=diabetesPrediction).show()
 # %%
+spark.sql("SELECT t1.age FROM {table1} t1",table1=diabetesPrediction).show()
+# %%
