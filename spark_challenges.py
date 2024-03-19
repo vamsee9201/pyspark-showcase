@@ -51,3 +51,5 @@ df1.union(df2).show()
 # %%
 spark.sql('SELECT * FROM {table1}',table1=diabetesPrediction).show()
 # %%
+spark.sql("SELECT {table1}.age FROM {table1}",table1=diabetesPrediction).show()
+# %%
