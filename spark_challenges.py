@@ -55,3 +55,10 @@ spark.sql("SELECT {table1}.age FROM {table1}",table1=diabetesPrediction).show()
 # %%
 spark.sql("SELECT t1.age FROM {table1} t1",table1=diabetesPrediction).show()
 # %%
+ageFilter = 25
+spark.sql("SELECT t1.age FROM {table1} t1 WHERE t1.age > {ageFilter}",table1=diabetesPrediction,ageFilter=ageFilter).show()
+# %%
+spark.sql("SELECT t1.age FROM {table1} t1 WHERE t1.age > :ageFilter",{"ageFilter":5},table1=diabetesPrediction).show()
+# %%
+spark.sql("SELECT t1.age FROM {table1} t1 WHERE t1.age > ? and ? < t1.age",args=[25,70],table1=diabetesPrediction).show()
+# %%
