@@ -66,3 +66,11 @@ diabetesPrediction.groupBy("gender").pivot("smoking_history").agg(avg("bmi")).fi
 # %%
 diabetesPrediction.groupBy("gender").pivot("smoking_history",["No Info","never"]).agg(avg("bmi")).fillna(0).show()
 # %%
+diabetesPrediction.show()
+# %%
+diabetesPrediction.groupBy("smoking_history").agg(count("*").alias("count")).show()
+"""
+smoking_history = diabetesPrediction.groupBy("smoking_history").count()
+smoking_history
+"""
+# %%
