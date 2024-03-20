@@ -62,5 +62,7 @@ spark.sql("SELECT t1.age FROM {table1} t1 WHERE t1.age > :ageFilter",{"ageFilter
 # %%
 spark.sql("SELECT t1.age FROM {table1} t1 WHERE t1.age > ? and ? < t1.age",args=[25,70],table1=diabetesPrediction).show()
 # %%
-diabetesPrediction.groupBy("gender").pivot("smoking_history").agg(avg("bmi")).show()
+diabetesPrediction.groupBy("gender").pivot("smoking_history").agg(avg("bmi")).fillna(0).show()
+# %%
+diabetesPrediction.groupBy("gender").pivot("smoking_history",["No Info","never"]).agg(avg("bmi")).fillna(0).show()
 # %%
