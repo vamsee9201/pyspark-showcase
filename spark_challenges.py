@@ -1,7 +1,7 @@
 #%%
 import pyspark.pandas as ps
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import col
+from pyspark.sql.functions import *
 #%%
 spark = SparkSession.builder.getOrCreate()
 #%%
@@ -61,4 +61,6 @@ spark.sql("SELECT t1.age FROM {table1} t1 WHERE t1.age > {ageFilter}",table1=dia
 spark.sql("SELECT t1.age FROM {table1} t1 WHERE t1.age > :ageFilter",{"ageFilter":5},table1=diabetesPrediction).show()
 # %%
 spark.sql("SELECT t1.age FROM {table1} t1 WHERE t1.age > ? and ? < t1.age",args=[25,70],table1=diabetesPrediction).show()
+# %%
+diabetesPrediction.groupBy("gender").pivot("smoking_history").agg(avg("bmi")).show()
 # %%
