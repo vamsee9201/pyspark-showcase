@@ -77,20 +77,12 @@ smoking_history
 type(diabetesPrediction)
 
 # %%
-import pyspark.pandas as ps
+#conversions of spark dataframe to pandas needs an intermediary like pandas-on-spark dataframe
 
-psdf = ps.range(10)
-pdf = psdf.to_pandas()
-
-converBack = ps.from_pandas(pdf)
-type(pdf)
-
-
-
-
-
-
-
+#bar plot
+genders = diabetesPrediction.groupby("gender").count()
+gendersBarPlot = genders.pandas_api()
+gendersBarPlot.plot.bar(x='gender', y='count') 
 
 
 # %%
