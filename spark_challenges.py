@@ -74,3 +74,23 @@ smoking_history = diabetesPrediction.groupBy("smoking_history").count()
 smoking_history
 """
 # %%
+type(diabetesPrediction)
+
+# %%
+import pyspark.pandas as ps
+
+psdf = ps.range(10)
+pdf = psdf.to_pandas()
+
+converBack = ps.from_pandas(pdf)
+type(pdf)
+
+
+
+
+
+
+
+
+
+# %%
