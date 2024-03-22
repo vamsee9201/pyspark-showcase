@@ -86,3 +86,4 @@ gendersBarPlot.plot.bar(x='gender', y='count')
 
 
 # %%
+#pyspark and streaming data
