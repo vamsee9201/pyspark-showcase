@@ -49,7 +49,7 @@ df1 = spark.createDataFrame([("Alice", 1), ("Bob", 2)], ["name", "id"])
 df2 = spark.createDataFrame([(3, "Charlie"), (4, "Dave")], ["id", "name"])
 df1.union(df2).show()
 # %%
-spark.sql('SELECT * FROM {table1}',table1=diabetesPrediction).show()
+type(spark.sql('SELECT * FROM {table1}',table1=diabetesPrediction))
 # %%
 spark.sql("SELECT {table1}.age FROM {table1}",table1=diabetesPrediction).show()
 # %%
