@@ -48,6 +48,7 @@ diabetesPrediction.where( (diabetesPrediction.age > 25) & (diabetesPrediction.ag
 df1 = spark.createDataFrame([("Alice", 1), ("Bob", 2)], ["name", "id"])
 df2 = spark.createDataFrame([(3, "Charlie"), (4, "Dave")], ["id", "name"])
 df1.union(df2).show()
+type(df1)
 # %%
 type(spark.sql('SELECT * FROM {table1}',table1=diabetesPrediction))
 # %%
